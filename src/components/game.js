@@ -81,6 +81,7 @@ export default class Game extends React.Component {
     const currentGuess = parseInt(e.target.userGuess.value, 10);
     this.handleGuess(currentGuess);
     e.target.userGuess.value = '';
+    e.target.userGuess.focus();
     this.handleDistanceChange(currentGuess);
   }
 
