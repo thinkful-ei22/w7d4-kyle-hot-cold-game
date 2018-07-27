@@ -3,3 +3,10 @@
 	font-weight: 700;
 	font-size: 1.5em;
 }
+.count {
+	margin: 0 auto;
+	font-size: 2em;
+	padding: 20px;
+	width: 380px;
+	background-color: rgb(57, 65, 99);
+}

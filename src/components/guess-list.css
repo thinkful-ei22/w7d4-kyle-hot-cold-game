@@ -1,6 +1,6 @@
 ul.guessBox {
 	height: 80px;
-	margin: 10px auto 0;
+	margin: 0 auto;
 	background: #11a8ab;
 	padding: 0.5em;
 	display: block;
@@ -9,6 +9,7 @@ ul.guessBox {
 	border-bottom-right-radius: 4px;
 	color: #fff;
 	overflow: auto;
+	width: 380px;
 }
 ul.guessBox li {
 	display: inline;
