@@ -1,12 +1,24 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { makeGuess } from '../actions';
 
 import './guess-form.css';
 
-export default function GuessForm(props) {
-  const display = (props.hasWon) ? 'hidden' : 'guessForm';
+export function GuessForm(props) {
+  const hasWon = props.guessList.includes(props.targetNumber);
+  const display = (hasWon) ? 'hidden' : 'guessForm';
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const currentGuess = parseInt(e.target.userGuess.value, 10);
+    props.dispatch(makeGuess(currentGuess));
+    e.target.userGuess.value = '';
+    e.target.userGuess.focus();
+  }
+
   return (
     <form 
-      onSubmit={ e => props.onSubmit(e)}
+      onSubmit={ e => handleSubmit(e)}
       className={display}
       >
       <input
@@ -31,3 +43,9 @@ export default function GuessForm(props) {
   );
 }
 
+export const mapStateToProps = state => ({
+  guessList: state.guessList,
+  targetNumber: state.targetNumber
+});
+
+export default connect(mapStateToProps)(GuessForm);
